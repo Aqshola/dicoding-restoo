@@ -2,6 +2,7 @@
   max-width: 1440px;
   box-sizing: border-box;
   margin: auto;
+  position: relative;
 }
 
 .card {
@@ -54,4 +55,13 @@
       letter-spacing: 2px;
     }
   }
+}
+
+.skip-btn {
+  padding: 5px 10px;
+  text-decoration: none;
+  background-color: #e22323;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
 }

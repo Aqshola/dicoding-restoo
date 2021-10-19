@@ -1,4 +1,4 @@
-.mobile-content {
+.nav-content {
   display: flex;
   justify-content: space-between;
 
@@ -9,7 +9,24 @@
   }
 }
 
-.ham-btn {
+.desktop-nav-link {
+  display: none;
+
+  a {
+    transition: all 0.1s;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: #e22323;
+    color: white;
+  }
+}
+
+.mobile-ham-btn {
   width: fit-content;
   display: flex;
   justify-content: center;
@@ -23,7 +40,7 @@
   width: 32px;
 }
 
-.nav-content {
+.mobile-nav-content {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -37,28 +54,39 @@
   padding-bottom: 5px;
   transition: all 200ms ease;
   height: 120px;
-  position: absolute;
 }
 
-.nav-content a {
+.mobile-nav-content a {
   text-decoration: none;
   color: white;
   padding: 5px;
 }
 
-.nav-content a:hover {
+.mobile-nav-content a:hover {
   background-color: #8d1515;
 }
 
-.hide-navcontent {
+.hide-mobile-nav-content {
   overflow: hidden;
   height: 0;
   visibility: hidden;
+
   padding-bottom: 0;
   padding-top: 0;
 }
 
-.mobile-nav {
+.nav {
   position: relative;
-  padding: 5px 10px;
+  padding: 10px 10px;
+}
+
+@media (min-width: 768px) {
+  .ham-icon {
+    width: 200px;
+    display: none;
+  }
+
+  .desktop-nav-link {
+    display: flex;
+  }
 }
