@@ -47,9 +47,9 @@ class AppBar extends HTMLElement {
           </svg>
         </button>
         <div class="desktop-nav-link">
-          <a href="#">Home</a>
+          <a href="/">Home</a>
           <a href="#">Favorites</a>
-          <a href="#">About us</a>
+          <a href="https://github.com/Aqshola">About us</a>
         </div>
       </div>
       <div class="mobile-nav-content hide-mobile-nav-content">
