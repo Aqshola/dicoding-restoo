@@ -20,7 +20,7 @@ class Hero extends HTMLElement {
         <p>${this.subtitle}</p>
       </div>
 
-      <img src=${this.img} alt=${this.altHero} class=${this.classHero} />
+      <img src=${this.img} alt="${this.altHero}" class=${this.classHero} />
     </div>
     `
   }

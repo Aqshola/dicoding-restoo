@@ -17,7 +17,7 @@ class Card extends HTMLElement {
       <div class="card">
               <img
                 src=${this.img}
-                alt="ruangan cafe"
+                alt="${this.name}"
               />
               <div class="card-description">
                 <a href=${link}>${this.name}</a>

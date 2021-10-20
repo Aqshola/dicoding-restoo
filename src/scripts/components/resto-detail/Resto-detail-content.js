@@ -13,7 +13,7 @@ class RestoDetailContent extends HTMLElement {
     const restoDetail = this.getRestoDetail()
     document.title = 'Resto detail | ' + restoDetail.name
     this.innerHTML = `
-    <hero-image img=${restoDetail.pictureId} alt-hero="foto kafe">
+    <hero-image img=${restoDetail.pictureId} alt-hero="${restoDetail.name}">
       </hero-image>
 
       <div class="resto-detail">
