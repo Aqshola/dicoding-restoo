@@ -86,3 +86,39 @@
   opacity: 100;
   height: max-content;
 }
+
+#main-content {
+  min-height: 100vh;
+}
+
+.hero-container {
+  width: 100%;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 30px;
+  box-sizing: border-box;
+  position: relative;
+
+  .hero-slogan {
+    font-weight: 500;
+    position: absolute;
+    color: white;
+    padding: 10px;
+    z-index: 20;
+    h2 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    z-index: 10;
+  }
+}
+
+.darken-img {
+  filter: brightness(50%);
+}

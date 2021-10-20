@@ -29,7 +29,7 @@ class AppBar extends HTMLElement {
     this.innerHTML = `
     <nav class="container nav">
       <div class="nav-content">
-        <a class="mobile-title" href="/">Resto App</a>
+        <a class="mobile-title" href="/">Restoo</a>
         <button class="mobile-ham-btn" aria-label="show/hide nav link">
           <svg
             class="ham-icon"

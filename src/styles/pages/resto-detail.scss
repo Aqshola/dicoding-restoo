@@ -1,0 +1,47 @@
+.resto-content {
+  padding: 0px 0px;
+  .resto-detail {
+    padding: 0px 10px;
+  }
+
+  h1 {
+    margin-top: 30px;
+    font-size: 30px;
+    color: #e22323;
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .resto-rating {
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #267e3e;
+    width: max-content;
+    padding: 5px;
+    border-radius: 10px;
+    h3 {
+      font-size: 18px;
+    }
+    svg {
+      width: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  p {
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .resto-content {
+    padding: 0px 50px;
+
+    .resto-detail {
+      padding: 0;
+    }
+  }
+}
