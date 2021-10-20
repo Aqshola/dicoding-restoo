@@ -11,18 +11,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
-          },
-        ],
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
@@ -31,6 +21,11 @@ module.exports = {
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/templates/resto-detail.html'),
+      filename: 'resto-detail.html',
+    }),
+
     new CopyWebpackPlugin({
       patterns: [
         {

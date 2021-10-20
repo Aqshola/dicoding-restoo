@@ -9,17 +9,25 @@
   overflow: hidden;
   border: 2px solid #e22323;
   border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   img {
+    display: block;
     width: 100%;
+    max-height: 200px;
+    object-fit: cover;
   }
 
   .card-description {
     padding: 10px;
 
-    h3 {
+    a {
+      text-decoration: none;
       font-size: 24px;
-      font-weight: 00;
+      font-weight: 600;
       color: #e22323;
+      transition: all 0.1s;
     }
 
     h4 {
@@ -29,6 +37,7 @@
   }
 
   .card-action {
+    margin-top: auto;
     padding: 10px;
     display: flex;
     .card-rating {
@@ -58,10 +67,22 @@
 }
 
 .skip-btn {
-  padding: 5px 10px;
   text-decoration: none;
   background-color: #e22323;
   color: white;
   border-radius: 5px;
   margin-left: 10px;
+  z-index: 100;
+  transition: all 0.1s;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 50px;
+}
+
+.skip-btn:focus {
+  padding: 5px 10px;
+  opacity: 100;
+  height: max-content;
 }
