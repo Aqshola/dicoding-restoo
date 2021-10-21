@@ -8,7 +8,9 @@
     font-weight: 600;
     color: #e22323;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 28px;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
@@ -16,11 +18,17 @@
   display: none;
 
   a {
+    box-sizing: border-box;
+    padding: 10px 10px;
+
+    font-size: 18px;
     transition: all 0.1s;
     border-radius: 5px;
     color: black;
-    padding: 5px;
+    font-weight: 400;
+
     text-decoration: none;
+    height: fit-content;
   }
 
   a:hover {
@@ -40,7 +48,7 @@
 }
 
 .ham-icon {
-  width: 32px;
+  width: 44px;
 }
 
 .mobile-nav-content {
@@ -56,13 +64,17 @@
   padding-right: 2px;
   padding-bottom: 5px;
   transition: all 200ms ease;
-  height: 120px;
+  height: 144px;
+  justify-content: space-between;
 }
 
 .mobile-nav-content a {
   text-decoration: none;
   color: white;
-  padding: 5px;
+  padding: 10px;
+  min-height: 44px;
+
+  box-sizing: border-box;
 }
 
 .mobile-nav-content a:hover {
@@ -95,5 +107,8 @@
 
   .desktop-nav-link {
     display: flex;
+  }
+  .mobile-nav-content {
+    display: none;
   }
 }
