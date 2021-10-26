@@ -1,7 +1,9 @@
 class Hero extends HTMLElement {
+  // eslint-disable-next-line no-useless-constructor
   constructor() {
     super()
   }
+
   connectedCallback() {
     this.img = this.getAttribute('img') || ''
     this.title = this.getAttribute('title') || ''

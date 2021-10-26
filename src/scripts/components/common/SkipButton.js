@@ -1,7 +1,9 @@
+/* eslint-disable no-useless-constructor */
 class SkipButton extends HTMLElement {
   constructor() {
     super()
   }
+
   connectedCallback() {
     this.render()
   }

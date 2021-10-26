@@ -3,7 +3,9 @@ import data from '../../../DATA.json'
 class RestoContent extends HTMLElement {
   constructor() {
     super()
+    this.container = '' || null
   }
+
   connectedCallback() {
     this.render()
     this.getRestoData()
@@ -21,25 +23,24 @@ class RestoContent extends HTMLElement {
   }
 
   getRestoData() {
-    const container = document.querySelector('.list-container')
+    this.container = document.querySelector('.list-container')
     let element = ''
-    console.log(data.restaurants)
 
-    data.restaurants.map((data) => {
+    data.restaurants.forEach((restoData) => {
       element += `<div class="list-wrapper">
             <card-resto
-            img=${data.pictureId}
-            name="${data.name}"
-            rate=${data.rating}
-            location=${data.city}
-            key=${data.id}
+            img=${restoData.pictureId}
+            name="${restoData.name}"
+            rate=${restoData.rating}
+            location=${restoData.city}
+            key=${restoData.id}
             >
 
             </card-resto>
         </div>`
     })
 
-    container.innerHTML = element
+    this.container.innerHTML = element
   }
 }
 

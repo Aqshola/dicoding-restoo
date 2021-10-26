@@ -1,26 +1,29 @@
 class AppBar extends HTMLElement {
-  constructor() {
-    super()
+  constructor(...args) {
+    super(...args)
+    this.HamBtn = ''
+    this.AppBarContent = ''
   }
+
   connectedCallback() {
     this.render()
+
     this.btnClick()
   }
 
   btnClick() {
-    const btn = document.querySelector('.mobile-ham-btn')
-    const navContent = document.querySelector('.mobile-nav-content')
-    console.log(btn)
-    console.log(navContent)
+    this.HamBtn = document.querySelector('.mobile-ham-btn')
+    this.AppBarContent = document.querySelector('.mobile-nav-content')
+    return this.HamBtn.addEventListener('click', () => {
+      this.AppBarContent.classList.toggle('hide-mobile-nav-content')
 
-    btn.addEventListener('click', () => {
-      navContent.classList.toggle('hide-mobile-nav-content')
-
-      const hide = navContent.classList.contains('hide-mobile-nav-content')
+      const hide = this.AppBarContent.classList.contains(
+        'hide-mobile-nav-content'
+      )
       if (hide) {
-        btn.style.transform = 'rotate(' + 0 + 'deg)'
+        this.HamBtn.style.transform = `rotate(${0}deg)`
       } else {
-        btn.style.transform = 'rotate(' + 90 + 'deg)'
+        this.HamBtn.style.transform = `rotate(${90}deg)`
       }
     })
   }
@@ -30,7 +33,7 @@ class AppBar extends HTMLElement {
     <nav class="container nav">
       <div class="nav-content">
         <a class="mobile-title" href="/">Restoo</a>
-        <button class="mobile-ham-btn" aria-label="show/hide nav link">
+        <button class="mobile-ham-btn" aria-label="show/hide nav link" >
           <svg
             class="ham-icon"
             xmlns="http://www.w3.org/2000/svg"
