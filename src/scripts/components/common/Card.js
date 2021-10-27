@@ -14,7 +14,7 @@ class Card extends HTMLElement {
   }
 
   render() {
-    const link = `/resto-detail.html?id=${this.key}`
+    const link = `/#/resto/${this.key}`
     this.innerHTML = `
       <div class="card">
               <img
