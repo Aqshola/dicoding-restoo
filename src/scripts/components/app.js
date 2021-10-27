@@ -1,3 +1,6 @@
+import UrlParser from '../utils/url-parser'
+import routes from '../routes/routes'
+
 class App {
   constructor({ content, footer, nav }) {
     this.content = content
@@ -28,19 +31,10 @@ class App {
     this.mainContent = document.querySelector('#main-content')
   }
 
-  renderPage() {
-    this.mainContent.innerHTML = `
-    <hero-image
-      img="images/heros/hero-image_2.jpg"
-      title="Restoo"
-      subtitle="Tempatnya cari makanan enak"
-      alt-hero="illustrasi kafe"
-      class-hero="darken-img"
-    ></hero-image>
-    <section id="main-content" class="container">
-      <resto-content> </resto-content>
-    </section>
-      `
+  async renderPage() {
+    const url = UrlParser.parseActiveUrlWithCombiner()
+    const page = routes[url]
+    this.mainContent.innerHTML = await page.render()
   }
 }
 

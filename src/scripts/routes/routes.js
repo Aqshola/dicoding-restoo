@@ -1,7 +1,9 @@
+import Homepage from '../pages/Homepage'
+
 const routes = {
-  '/': 'Component homepage', // default page
-  '/favorites': 'Component Favorites',
-  '/resto/:id': 'Component Resto Detail',
+  '/': Homepage, // default page
+  '/favorite': Homepage,
+  '/resto/:id': Homepage,
 }
 
 export default routes
