@@ -1,18 +1,23 @@
 .resto-content {
   padding: 0px 0px;
+  min-height: 100vh;
   .resto-detail {
     padding: 0px 10px;
   }
 
-  h1 {
+  .resto-title {
     margin-top: 30px;
     font-size: 30px;
     color: #e22323;
     margin-bottom: 5px;
   }
-  h2 {
+  .resto-city {
     font-weight: 500;
     margin-bottom: 5px;
+  }
+
+  .resto-address {
+    font-weight: 500;
   }
   .resto-rating {
     display: flex;
@@ -34,6 +39,72 @@
   p {
     margin-top: 30px;
   }
+
+  .resto-additional {
+    margin-top: 10px;
+    border-top: 1px solid black;
+    padding-top: 40px;
+  }
+  .resto-nav {
+    display: flex;
+    margin-top: 15px;
+
+    a {
+      padding: 5px;
+      border: 2px solid #e22323;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.1s;
+      margin-right: 10px;
+    }
+
+    .active-nav {
+      background-color: #e22323;
+      color: white;
+    }
+  }
+
+  .resto-menu {
+    margin-top: 20px;
+
+    ul {
+      li {
+        list-style: inside;
+      }
+    }
+  }
+
+  .resto-review {
+    h1 {
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
+
+  .review-list {
+    padding: 10px;
+  }
+  .review-card {
+    padding: 10px 0px;
+    border-bottom: 1px solid #e22323;
+
+    h1 {
+      font-weight: 500;
+      margin-top: 0;
+      font-size: 20px;
+      color: black;
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    p {
+      font-weight: 400;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
@@ -42,6 +113,11 @@
 
     .resto-detail {
       padding: 0;
+    }
+
+    .resto-menu {
+      display: flex;
+      gap: 100px;
     }
   }
 }
