@@ -21,6 +21,7 @@ class RestoMenu extends HTMLElement {
       .join('')
 
     this.innerHTML = `                <div class="resto-menu">
+    <h2>Menu Restoran</h2>
           <div id="menu-makanan">
             <h3>
               Makanan

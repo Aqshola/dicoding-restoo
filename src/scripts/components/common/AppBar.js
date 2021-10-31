@@ -60,9 +60,8 @@ class AppBar extends HTMLElement {
         <a href="#">Favorites</a>
         <a href="#">About us</a>
       </div>
-
-      
     </nav>
+    <skip-button></skip-button>
     `
   }
 }

@@ -19,7 +19,7 @@ class RestoNav extends HTMLElement {
     this.innerHTML = `  <div class="resto-nav">
             <a href="${url}?mode=desc" class=${
       query === 'desc' || !query ? 'active-nav' : ''
-    }>Description</a>
+    }>Sekilas</a>
             <a href="${url}?mode=menu" class=${
       query === 'menu' ? 'active-nav' : ''
     }>Menu</a>

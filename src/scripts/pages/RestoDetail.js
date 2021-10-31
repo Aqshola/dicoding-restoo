@@ -33,23 +33,31 @@ class RestoDetail {
     rating,
     address,
     description,
-    // categories,
-    // customerReviews,
+    categories,
+    customerReviews,
     menus,
   }) {
     const linkPictureId = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`
     const mode = this.getMode()
 
-    const foods = JSON.stringify(menus.foods)
-    const drinks = JSON.stringify(menus.drinks)
-
     return `
     <hero-image img=${linkPictureId} alt-hero="${name}">
       </hero-image>
       <div class="resto-detail">
-        <h1 class="resto-title">${name}</h1>
+        <div class="resto-head">
+          <h1 class="resto-title">${name}</h1>
+          <button aria-label="favorite">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
         <h2 class="resto-city">${city}</h2>
         <h3 class="resto-address">${address}</h3>
+        <div class="resto-category">
+          ${this.generateCategory(categories)}
+        
+        </div>
         <div class="resto-rating">
               <svg
                 aria-label="rate icon"
@@ -67,13 +75,27 @@ class RestoDetail {
         <div>
           <resto-nav id="${id}"></resto-nav>
           <div class="resto-additional">
-            ${!mode || mode === 'desc' ? `<p>${description}</p>` : ''}
             ${
-              mode === 'menu'
-                ? `<resto-menu data-makanan='${foods}' data-minuman='${drinks}'></resto-menu>`
+              !mode || mode === 'desc'
+                ? `<resto-desc desc="${description}"></resto-desc>`
                 : ''
             }
-            ${mode === 'review' ? `<resto-review></resto-review>` : ''}
+            ${
+              mode === 'menu'
+                ? `<resto-menu data-makanan='${JSON.stringify(
+                    menus.foods
+                  )}' data-minuman='${JSON.stringify(
+                    menus.drinks
+                  )}'></resto-menu>`
+                : ''
+            }
+            ${
+              mode === 'review'
+                ? `<resto-review data-review='${JSON.stringify(
+                    customerReviews
+                  )}'></resto-review>`
+                : ''
+            }
           </div>
         </div>     
     `
@@ -82,6 +104,11 @@ class RestoDetail {
   static getMode() {
     const urlQuery = new URL(window.location)
     return urlQuery.toString().split('?mode=')[1]
+  }
+
+  static generateCategory(category) {
+    const append = category.map((data) => `<p>${data.name}</p>`).join('')
+    return append
   }
 }
 

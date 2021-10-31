@@ -6,6 +6,8 @@ class RestoReview extends HTMLElement {
   }
 
   connectedCallback() {
+    this.review = JSON.parse(this.dataset.review) || []
+
     this.render()
   }
 
@@ -16,13 +18,24 @@ class RestoReview extends HTMLElement {
 
 
             <div class="review-list">
-              <div class="review-card">
-                  <h1>Gilang</h1>
-                  <h2>13 November 2019</h2>
-                  <p>Tidak ada duanya</p>
-                </div>
+              ${this.generateReviewList()}
             </div>
           </div>`
+  }
+
+  generateReviewList() {
+    const append = this.review
+      .map(
+        (data) =>
+          `<div class="review-card">
+                  <h1>${data.name}</h1>
+                  <h2>${data.date}</h2>
+                  <p>${data.review}</p>
+        </div>`
+      )
+      .join('')
+
+    return append
   }
 }
 

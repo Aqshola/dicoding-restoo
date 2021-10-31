@@ -5,11 +5,37 @@
     padding: 0px 10px;
   }
 
-  .resto-title {
-    margin-top: 30px;
-    font-size: 30px;
-    color: #e22323;
-    margin-bottom: 5px;
+  .resto-head {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .resto-title {
+      font-size: 30px;
+      color: #e22323;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      color: transparent;
+
+      outline: #e22323;
+      height: 40px;
+      width: 40px;
+      svg {
+        stroke: #e22323;
+        stroke-width: 1px;
+
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
   .resto-city {
     font-weight: 500;
@@ -104,6 +130,23 @@
       margin-top: 10px;
       margin-bottom: 5px;
     }
+  }
+
+  .resto-desc {
+    p {
+      margin-top: 10px;
+    }
+  }
+
+  .resto-category {
+    margin-top: 5px;
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    color: #267e3e;
+    font-weight: 600;
+
+    margin-bottom: 5px;
   }
 }
 
