@@ -16,8 +16,6 @@ class App {
     this.appContent.innerHTML = `
     
     ${this.nav}
-     
-
     <div id="main-content">
       ${this.content}
     </div>
@@ -37,7 +35,12 @@ class App {
     const page = routes[url]
     this.mainContent.innerHTML = await page.render()
     await page.afterRender()
-    scrollToTop()
+
+    const newQuery = new URL(window.location).toString().split('?')[1]
+
+    if (!newQuery) {
+      scrollToTop()
+    }
   }
 }
 

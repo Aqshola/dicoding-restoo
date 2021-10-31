@@ -36,20 +36,18 @@
     }
   }
 
-  p {
-    margin-top: 30px;
-  }
-
   .resto-additional {
     margin-top: 10px;
     border-top: 1px solid black;
-    padding-top: 40px;
+    padding-top: 35px;
   }
   .resto-nav {
     display: flex;
     margin-top: 15px;
 
     a {
+      text-decoration: none;
+      color: black;
       padding: 5px;
       border: 2px solid #e22323;
       border-radius: 10px;
@@ -65,7 +63,9 @@
   }
 
   .resto-menu {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     ul {
       li {
@@ -116,7 +116,7 @@
     }
 
     .resto-menu {
-      display: flex;
+      flex-direction: row;
       gap: 100px;
     }
   }

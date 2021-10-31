@@ -18,11 +18,12 @@ class RestoNav extends HTMLElement {
     const url = `#/resto/${this.id}`
     this.innerHTML = `  <div class="resto-nav">
             <a href="${url}?mode=desc" class=${
-      query === 'desc' ? 'active-nav' : ''
+      query === 'desc' || !query ? 'active-nav' : ''
     }>Description</a>
             <a href="${url}?mode=menu" class=${
       query === 'menu' ? 'active-nav' : ''
     }>Menu</a>
+    
             <a href="${url}?mode=review"  class=${
       query === 'review' ? 'active-nav' : ''
     }>Review</a>

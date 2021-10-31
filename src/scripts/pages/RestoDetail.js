@@ -17,6 +17,8 @@ class RestoDetail {
       await fetch(`https://restaurant-api.dicoding.dev/detail/${url.id}`)
     ).json()
 
+    console.log(fetchData)
+
     container.innerHTML = this.appendDetailContent({
       id: url.id,
       ...fetchData.restaurant,
@@ -30,12 +32,16 @@ class RestoDetail {
     city,
     rating,
     address,
-    // description,
+    description,
     // categories,
     // customerReviews,
-    // menus,
+    menus,
   }) {
     const linkPictureId = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`
+    const mode = this.getMode()
+
+    const foods = JSON.stringify(menus.foods)
+    const drinks = JSON.stringify(menus.drinks)
 
     return `
     <hero-image img=${linkPictureId} alt-hero="${name}">
@@ -61,12 +67,21 @@ class RestoDetail {
         <div>
           <resto-nav id="${id}"></resto-nav>
           <div class="resto-additional">
-
-          <resto-review></resto-review>
-
+            ${!mode || mode === 'desc' ? `<p>${description}</p>` : ''}
+            ${
+              mode === 'menu'
+                ? `<resto-menu data-makanan='${foods}' data-minuman='${drinks}'></resto-menu>`
+                : ''
+            }
+            ${mode === 'review' ? `<resto-review></resto-review>` : ''}
           </div>
         </div>     
     `
+  }
+
+  static getMode() {
+    const urlQuery = new URL(window.location)
+    return urlQuery.toString().split('?mode=')[1]
   }
 }
 
