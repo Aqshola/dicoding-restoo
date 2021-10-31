@@ -16,12 +16,15 @@ class RestoDetail {
     const fetchData = await (
       await fetch(`https://restaurant-api.dicoding.dev/detail/${url.id}`)
     ).json()
-    console.log(fetchData)
 
-    container.innerHTML = this.appendDetailContent({ ...fetchData.restaurant })
+    container.innerHTML = this.appendDetailContent({
+      id: url.id,
+      ...fetchData.restaurant,
+    })
   }
 
   static appendDetailContent({
+    id,
     name,
     pictureId,
     city,
@@ -33,8 +36,6 @@ class RestoDetail {
     // menus,
   }) {
     const linkPictureId = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`
-
-    // const temp = "<p>${description}</p> <resto-menu></resto-menu>"
 
     return `
     <hero-image img=${linkPictureId} alt-hero="${name}">
@@ -58,7 +59,7 @@ class RestoDetail {
         </div>
 
         <div>
-          <resto-nav></resto-nav>
+          <resto-nav id="${id}"></resto-nav>
           <div class="resto-additional">
 
           <resto-review></resto-review>
