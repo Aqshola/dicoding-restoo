@@ -7,7 +7,6 @@ class AppBar extends HTMLElement {
 
   connectedCallback() {
     this.render()
-
     this.btnClick()
   }
 
@@ -56,8 +55,8 @@ class AppBar extends HTMLElement {
         </div>
       </div>
       <div class="mobile-nav-content hide-mobile-nav-content">
-        <a href="#">Home</a>
-        <a href="#">Favorites</a>
+        <a href="#/">Home</a>
+        <a href="#/favorite">Favorites</a>
         <a href="#">About us</a>
       </div>
     </nav>
