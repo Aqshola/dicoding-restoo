@@ -10,6 +10,9 @@ const dbPromise = openDB(STORE_NAME, 1, {
 })
 
 const Database = {
+  async getRestoo(id) {
+    return (await dbPromise).get(OBJECT_STORE_NAME, id)
+  },
   async getAllRestoo() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME)
   },
@@ -17,7 +20,7 @@ const Database = {
     return (await dbPromise).add(OBJECT_STORE_NAME, resto)
   },
   async deleteRestoo(id) {
-    return (await dbPromise).add(OBJECT_STORE_NAME, id)
+    return (await dbPromise).delete(OBJECT_STORE_NAME, id)
   },
 }
 

@@ -39,6 +39,18 @@ class RestoDetail {
   }) {
     const linkPictureId = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`
     const mode = this.getMode()
+    const bundleData = JSON.stringify({
+      id,
+      name,
+      pictureId,
+      city,
+      rating,
+      address,
+      description,
+      categories,
+      customerReviews,
+      menus,
+    })
 
     return `
     <hero-image img=${linkPictureId} alt-hero="${name}">
@@ -46,11 +58,7 @@ class RestoDetail {
       <div class="resto-detail">
         <div class="resto-head">
           <h1 class="resto-title">${name}</h1>
-          <button aria-label="favorite">
-            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-            </svg>
-          </button>
+          <resto-fav data-resto='${bundleData}'></resto-fav>
         </div>
         <h2 class="resto-city">${city}</h2>
         <h3 class="resto-address">${address}</h3>

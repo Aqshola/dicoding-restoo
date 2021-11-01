@@ -8,6 +8,7 @@ import RestoNav from './resto-detail/Resto-nav'
 import RestoMenu from './resto-detail/Resto-menu'
 import RestoReview from './resto-detail/Resto-review'
 import RestoDesc from './resto-detail/Resto-desc'
+import RestoFav from './resto-detail/Resto-fav'
 
 export {
   AppBar,
@@ -19,4 +20,5 @@ export {
   RestoMenu,
   RestoReview,
   RestoDesc,
+  RestoFav,
 }
