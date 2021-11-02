@@ -2,6 +2,7 @@ import 'regenerator-runtime' /* for async await transpile */
 import '../styles/style.scss'
 import App from './components/app'
 import './components/index'
+import swRegister from './utils/swRegister'
 
 const app = new App({
   content: 'Loading...',
@@ -14,4 +15,5 @@ window.addEventListener('hashchange', () => {
 })
 window.addEventListener('load', () => {
   app.renderPage()
+  swRegister()
 })
