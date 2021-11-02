@@ -12,12 +12,12 @@ class RestoDetail {
 
   static async afterRender() {
     const container = document.querySelector('.resto-content')
+
     const url = UrlParser.parseActiveUrlWithoutCombiner()
+
     const fetchData = await (
       await fetch(`https://restaurant-api.dicoding.dev/detail/${url.id}`)
     ).json()
-
-    console.log(fetchData)
 
     container.innerHTML = this.appendDetailContent({
       id: url.id,

@@ -7,13 +7,15 @@ class AppBar extends HTMLElement {
 
   connectedCallback() {
     this.render()
-    this.btnClick()
+    this.afterRender()
   }
 
-  btnClick() {
+  afterRender() {
     this.HamBtn = document.querySelector('.mobile-ham-btn')
     this.AppBarContent = document.querySelector('.mobile-nav-content')
-    return this.HamBtn.addEventListener('click', () => {
+    this.mainContent = document.querySelector('#main-content')
+    this.HamBtn.addEventListener('click', (e) => {
+      e.stopPropagation()
       this.AppBarContent.classList.toggle('hide-mobile-nav-content')
 
       const hide = this.AppBarContent.classList.contains(
@@ -24,6 +26,12 @@ class AppBar extends HTMLElement {
       } else {
         this.HamBtn.style.transform = `rotate(${90}deg)`
       }
+    })
+
+    this.mainContent.addEventListener('click', (e) => {
+      e.stopPropagation()
+      this.AppBarContent.classList.add('hide-mobile-nav-content')
+      this.HamBtn.style.transform = `rotate(${0}deg)`
     })
   }
 

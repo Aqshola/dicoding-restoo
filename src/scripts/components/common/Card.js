@@ -10,6 +10,7 @@ class Card extends HTMLElement {
     this.location = this.getAttribute('location') || null
     this.rate = this.getAttribute('rate') || ''
     this.key = this.getAttribute('key') || ''
+
     this.render()
   }
 

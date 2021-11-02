@@ -7,7 +7,7 @@ class SkipButton extends HTMLElement {
   connectedCallback() {
     this.btn = ''
     this.render()
-    this.buttonClick()
+    this.afterRender()
   }
 
   render() {
@@ -16,7 +16,7 @@ class SkipButton extends HTMLElement {
     `
   }
 
-  buttonClick() {
+  afterRender() {
     this.btn = document.querySelector('.skip-btn')
 
     this.btn.addEventListener('click', () => {
