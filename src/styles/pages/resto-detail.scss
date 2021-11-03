@@ -1,168 +1,173 @@
 .resto-content {
   padding: 0px 0px;
   min-height: 100vh;
-  .resto-detail {
-    padding: 0px 10px;
-  }
+}
 
-  .resto-head {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .resto-title {
-      font-size: 30px;
-      color: #e22323;
-    }
-  }
-  .resto-city {
-    font-weight: 500;
-    margin-bottom: 5px;
-  }
+.resto-detail {
+  padding: 0px 10px;
+}
 
-  .resto-address {
-    font-weight: 500;
-  }
-  .resto-rating {
-    display: flex;
-    align-items: center;
-    color: white;
-    background-color: #267e3e;
-    width: max-content;
-    padding: 5px;
-    border-radius: 10px;
-    h3 {
-      font-size: 18px;
-    }
-    svg {
-      width: 20px;
-      margin-right: 5px;
-    }
-  }
-
-  .resto-additional {
-    margin-top: 10px;
-    border-top: 1px solid black;
-    padding-top: 35px;
-  }
-  .resto-nav {
-    display: flex;
-    margin-top: 15px;
-
-    a {
-      text-decoration: none;
-      color: black;
-      padding: 5px;
-      border: 2px solid #e22323;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: all 0.1s;
-      margin-right: 10px;
-    }
-
-    .active-nav {
-      background-color: #e22323;
-      color: white;
-    }
-  }
-
-  .resto-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    ul {
-      li {
-        list-style: inside;
-      }
-    }
-  }
-
-  .resto-review {
-    h1 {
-      font-weight: bold;
-      font-size: 25px;
-    }
-  }
-
-  .review-list {
-    padding: 10px;
-  }
-  .review-card {
-    padding: 10px 0px;
-    border-bottom: 1px solid #e22323;
-
-    h1 {
-      font-weight: 500;
-      margin-top: 0;
-      font-size: 20px;
-      color: black;
-    }
-    h2 {
-      font-weight: 500;
-      font-size: 14px;
-    }
-
-    p {
-      font-weight: 400;
-      margin-top: 10px;
-      margin-bottom: 5px;
-    }
-  }
-
-  .resto-desc {
-    p {
-      margin-top: 10px;
-    }
-  }
-
-  .resto-category {
-    margin-top: 5px;
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
-    color: #267e3e;
-    font-weight: 600;
-
-    margin-bottom: 5px;
-  }
-
-  .resto-fav {
-    border: none;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    color: transparent;
-    height: 40px;
-    width: 40px;
-    transition: all 0.1s ease;
-    svg {
-      stroke: #e22323;
-      stroke-width: 1px;
-
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  .resto-fav-active {
+.resto-head {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .resto-title {
+    font-size: 30px;
     color: #e22323;
   }
+}
+.resto-city {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.resto-address {
+  font-weight: 500;
+}
+.resto-rating {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #267e3e;
+  width: max-content;
+  padding: 5px;
+  border-radius: 10px;
+  h3 {
+    font-size: 18px;
+  }
+  svg {
+    width: 20px;
+    margin-right: 5px;
+  }
+}
+
+.resto-additional {
+  margin-top: 10px;
+  border-top: 1px solid black;
+  padding-top: 35px;
+}
+
+.resto-nav {
+  display: flex;
+  margin-top: 15px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    border: 2px solid #e22323;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.1s;
+    margin-right: 10px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .active-nav {
+    background-color: #e22323;
+    color: white;
+  }
+}
+
+.resto-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  ul {
+    li {
+      list-style: inside;
+    }
+  }
+}
+
+.resto-review {
+  h1 {
+    font-weight: bold;
+    font-size: 25px;
+  }
+}
+
+.review-list {
+  padding: 10px;
+}
+.review-card {
+  padding: 10px 0px;
+  border-bottom: 1px solid #e22323;
+
+  h1 {
+    font-weight: 500;
+    margin-top: 0;
+    font-size: 20px;
+    color: black;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  p {
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+}
+
+.resto-desc {
+  p {
+    margin-top: 10px;
+  }
+}
+
+.resto-category {
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  color: #267e3e;
+  font-weight: 600;
+
+  margin-bottom: 5px;
+}
+
+.resto-fav {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: transparent;
+  height: 44px;
+  width: 44px;
+  transition: all 0.1s ease;
+  svg {
+    stroke: #e22323;
+    stroke-width: 1px;
+
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.resto-fav-active {
+  color: #e22323;
 }
 
 @media (min-width: 1200px) {
   .resto-content {
     padding: 0px 50px;
+  }
 
-    .resto-detail {
-      padding: 0;
-    }
+  .resto-detail {
+    padding: 0;
+  }
 
-    .resto-menu {
-      flex-direction: row;
-      gap: 100px;
-    }
+  .resto-menu {
+    flex-direction: row;
+    gap: 100px;
   }
 }

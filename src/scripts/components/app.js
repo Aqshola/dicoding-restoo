@@ -20,12 +20,7 @@ class App {
       ${this.content}
     </div>
 
-    
-
     ${this.footer}
-
-    
-    
     `
     this.mainContent = document.querySelector('#main-content')
   }

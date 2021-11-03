@@ -1,10 +1,11 @@
+import { getDetailResto, getPicture } from '../utils/api'
 import UrlParser from '../utils/url-parser'
 
 class RestoDetail {
   static render() {
     return `
     <section class="resto-content">
-      <h1>Loading resto data...</h1>
+      <loader-spin class="loader-wrapper"></loader-spin>
     </section>
     
     `
@@ -15,14 +16,16 @@ class RestoDetail {
 
     const url = UrlParser.parseActiveUrlWithoutCombiner()
 
-    const fetchData = await (
-      await fetch(`https://restaurant-api.dicoding.dev/detail/${url.id}`)
-    ).json()
+    const fetchData = await getDetailResto(url.id)
 
-    container.innerHTML = this.appendDetailContent({
-      id: url.id,
-      ...fetchData.restaurant,
-    })
+    if (fetchData.error) {
+      container.innerHTML = '<error-msg></error-msg>'
+    } else {
+      container.innerHTML = this.appendDetailContent({
+        id: url.id,
+        ...fetchData.restaurant,
+      })
+    }
   }
 
   static appendDetailContent({
@@ -37,7 +40,6 @@ class RestoDetail {
     customerReviews,
     menus,
   }) {
-    const linkPictureId = `https://restaurant-api.dicoding.dev/images/medium/${pictureId}`
     const mode = this.getMode()
     const bundleData = JSON.stringify({
       id,
@@ -53,7 +55,7 @@ class RestoDetail {
     })
 
     return `
-    <hero-image img=${linkPictureId} alt-hero="${name}">
+    <hero-image img=${getPicture(pictureId)} alt-hero="${name}">
       </hero-image>
       <div class="resto-detail">
         <div class="resto-head">

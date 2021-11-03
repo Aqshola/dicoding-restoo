@@ -1,3 +1,5 @@
+import { getAllResto, getPicture } from '../utils/api'
+
 class Homepage {
   static render() {
     return `<hero-image
@@ -11,7 +13,7 @@ class Homepage {
       <div class="list-restorant-container">
         <h2>Daftar Restoran</h2>
         <div class="list-container">
-          Loading...
+          <loader-spin class="loader-wrapper"></loader-spin>
         </div>
       </div>
     </section>
@@ -20,30 +22,31 @@ class Homepage {
 
   static async afterRender() {
     const containerContent = document.querySelector('.list-container')
-    let element = ''
 
-    const fetchData = await (
-      await fetch('https://restaurant-api.dicoding.dev/list')
-    ).json()
+    const fetchData = await getAllResto()
 
     this.data = fetchData
 
-    fetchData.restaurants.forEach((restoData) => {
-      const pictureId = `https://restaurant-api.dicoding.dev/images/medium/${restoData.pictureId}`
+    containerContent.innerHTML = this.appendContent(fetchData.restaurants)
+  }
+
+  static appendContent(data) {
+    let element = ''
+
+    data.forEach((restoData) => {
       element += `<div class="list-wrapper">
             <card-resto
-            img=${pictureId}
+            img=${getPicture(restoData.pictureId)}
             name="${restoData.name}"
             rate=${restoData.rating}
             location=${restoData.city}
             key=${restoData.id}
             >
-
             </card-resto>
         </div>`
     })
 
-    containerContent.innerHTML = element
+    return element
   }
 }
 

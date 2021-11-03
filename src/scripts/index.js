@@ -5,7 +5,7 @@ import './components/index'
 import swRegister from './utils/swRegister'
 
 const app = new App({
-  content: 'Loading...',
+  content: '<loader-spin class="loader-wrapper"></loader-spin>',
   footer: '<footer-section></footer-section>',
   nav: '<app-bar></app-bar>',
 })

@@ -1,0 +1,14 @@
+.container {
+  max-width: 1440px;
+  box-sizing: border-box;
+  margin: auto;
+  position: relative;
+}
+
+#main-content {
+  min-height: 100vh;
+}
+
+.darken-img {
+  filter: brightness(50%);
+}

@@ -3,6 +3,8 @@ import Card from './common/Card'
 import SkipButton from './common/SkipButton'
 import Hero from './common/Hero'
 import Footer from './common/Footer'
+import Loader from './common/Loader'
+import Errormsg from './common/ErrorMsg'
 
 import RestoNav from './resto-detail/Resto-nav'
 import RestoMenu from './resto-detail/Resto-menu'
@@ -21,4 +23,6 @@ export {
   RestoReview,
   RestoDesc,
   RestoFav,
+  Loader,
+  Errormsg,
 }

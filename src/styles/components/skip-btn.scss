@@ -1,0 +1,20 @@
+.skip-btn {
+  text-decoration: none;
+  background-color: #e22323;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  z-index: 100;
+  transition: all 0.1s;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 50px;
+}
+
+.skip-btn:focus {
+  padding: 5px 10px;
+  opacity: 100;
+  height: max-content;
+}

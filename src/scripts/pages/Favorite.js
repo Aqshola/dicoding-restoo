@@ -1,4 +1,4 @@
-import Database from '../utils/indexedDB'
+import { getFavoriteResto } from '../utils/api'
 
 class Favorite {
   static render() {
@@ -14,26 +14,25 @@ class Favorite {
       <div class="list-restorant-container">
         <h2>Daftar Restoran</h2>
         <div class="list-container">
-          Loading...
+          <loader-spin class="loader-wrapper"></loader-spin>
         </div>
       </div>
     </section>
       `
   }
 
-  static async getFavoriteData() {
-    const data = await Database.getAllRestoo()
-
-    return data
-  }
-
   static async afterRender() {
     const containerContent = document.querySelector('.list-container')
+
+    const favArray = await getFavoriteResto()
+
+    containerContent.innerHTML = this.appendContent(favArray)
+  }
+
+  static appendContent(data) {
     let element = ''
 
-    const favArray = await this.getFavoriteData()
-
-    favArray.forEach((restoData) => {
+    data.forEach((restoData) => {
       const pictureId = `https://restaurant-api.dicoding.dev/images/medium/${restoData.pictureId}`
       element += `<div class="list-wrapper">
             <card-resto
@@ -47,10 +46,8 @@ class Favorite {
         </div>`
     })
 
-    containerContent.innerHTML = element
+    return element
   }
-
-  // eslint-disable-next-line class-methods-use-this
 }
 
 export default Favorite

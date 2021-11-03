@@ -14,6 +14,7 @@ class AppBar extends HTMLElement {
     this.HamBtn = document.querySelector('.mobile-ham-btn')
     this.AppBarContent = document.querySelector('.mobile-nav-content')
     this.mainContent = document.querySelector('#main-content')
+
     this.HamBtn.addEventListener('click', (e) => {
       e.stopPropagation()
       this.AppBarContent.classList.toggle('hide-mobile-nav-content')
@@ -28,6 +29,14 @@ class AppBar extends HTMLElement {
       }
     })
 
+    document.addEventListener('click', (e) => {
+      const isButtonHam = e.target.classList.contains('mobile-ham-btn')
+
+      if (!isButtonHam) {
+        this.AppBarContent.classList.add('hide-mobile-nav-content')
+        this.HamBtn.style.transform = `rotate(${0}deg)`
+      }
+    })
     this.mainContent.addEventListener('click', (e) => {
       e.stopPropagation()
       this.AppBarContent.classList.add('hide-mobile-nav-content')
@@ -65,7 +74,7 @@ class AppBar extends HTMLElement {
       <div class="mobile-nav-content hide-mobile-nav-content">
         <a href="#/">Home</a>
         <a href="#/favorite">Favorites</a>
-        <a href="#">About us</a>
+        <a href="https://github.com/Aqshola" rel="noopener noreferrer" target="_blank">About us</a>
       </div>
     </nav>
     <skip-button></skip-button>
