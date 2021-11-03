@@ -1,8 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-restricted-globals */
 import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
-import 'regenerator-runtime/runtime'
-// import { cleanupOutdatedCaches } from 'workbox-precaching'
 import { registerRoute } from 'workbox-routing'
 import { CacheFirst, NetworkFirst } from 'workbox-strategies'
 import { ExpirationPlugin } from 'workbox-expiration'
