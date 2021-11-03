@@ -3,7 +3,7 @@
 import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
 import 'regenerator-runtime/runtime'
 // import { cleanupOutdatedCaches } from 'workbox-precaching'
-import { registerRoute } from 'workbox-routing/registerRoute'
+import { registerRoute } from 'workbox-routing'
 import { CacheFirst, NetworkFirst } from 'workbox-strategies'
 import { ExpirationPlugin } from 'workbox-expiration'
 import { clientsClaim, setCacheNameDetails } from 'workbox-core'
@@ -37,8 +37,10 @@ precacheAndRoute(
     ignoreURLParametersMatching: [/.*/],
   }
 )
+
 registerRoute(
-  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(list|detail))/,
+  /^https:\/\/restaurant-api.dicoding.dev\/(?:(list|detail))/,
+
   new NetworkFirst({
     cacheName: 'dicoding-restaurant-api',
     plugins: [
@@ -47,7 +49,8 @@ registerRoute(
         maxEntries: 100,
       }),
     ],
-  })
+  }),
+  'GET'
 )
 
 registerRoute(

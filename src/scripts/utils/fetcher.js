@@ -1,4 +1,11 @@
 export default async function fetcher(url) {
-  const data = await (await fetch(url)).json()
-  return data
+  try {
+    const data = await (await fetch(url)).json()
+    return data
+  } catch (error) {
+    return {
+      error: true,
+      message: 'failed to fetch 😥',
+    }
+  }
 }

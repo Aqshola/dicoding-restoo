@@ -46,6 +46,7 @@ class AppBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
+    <skip-button></skip-button>
     <nav class="container nav">
       <div class="nav-content">
         <a class="mobile-title" href="#/">Restoo</a>
@@ -77,7 +78,7 @@ class AppBar extends HTMLElement {
         <a href="https://github.com/Aqshola" rel="noopener noreferrer" target="_blank">About us</a>
       </div>
     </nav>
-    <skip-button></skip-button>
+    
     `
   }
 }

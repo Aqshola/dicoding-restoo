@@ -27,7 +27,11 @@ class Homepage {
 
     this.data = fetchData
 
-    containerContent.innerHTML = this.appendContent(fetchData.restaurants)
+    if (fetchData.error) {
+      containerContent.innerHTML = `<error-msg class="err-msg" msg="${fetchData.message}"></error-msg>`
+    } else {
+      containerContent.innerHTML = this.appendContent(fetchData.restaurants)
+    }
   }
 
   static appendContent(data) {

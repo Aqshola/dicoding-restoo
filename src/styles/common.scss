@@ -12,3 +12,13 @@
 .darken-img {
   filter: brightness(50%);
 }
+
+.err-msg {
+  width: 100%;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 10;
+  p {
+    font-weight: 500;
+  }
+}

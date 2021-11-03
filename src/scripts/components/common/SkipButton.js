@@ -12,7 +12,7 @@ class SkipButton extends HTMLElement {
 
   render() {
     this.innerHTML = `
-    <button href="#main-content" class="skip-btn">Skip to Content</button>
+    <a href="#main-content" class="skip-btn">Skip to Content</a>
     `
   }
 

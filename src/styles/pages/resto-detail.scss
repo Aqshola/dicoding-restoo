@@ -125,12 +125,15 @@
 .resto-category {
   margin-top: 5px;
   display: flex;
-  gap: 10px;
+
   font-size: 20px;
   color: #267e3e;
   font-weight: 600;
+  p {
+    margin-right: 5px;
+  }
 
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .resto-fav {
