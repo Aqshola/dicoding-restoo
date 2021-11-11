@@ -40,6 +40,10 @@ module.exports = {
             ignore: ["**/images/**"], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
           },
         },
+        {
+          from: path.resolve(__dirname, "src/scripts/sw.js"),
+          to: path.resolve(__dirname, "dist"),
+        },
       ],
     }),
     new InjectManifest({
