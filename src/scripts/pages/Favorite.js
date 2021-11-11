@@ -1,10 +1,11 @@
-import { getFavoriteResto } from '../utils/api'
+import { getFavoriteResto } from "../utils/api";
 
 class Favorite {
   static render() {
     return `
     <hero-image
-      img="images/heros/hero-image_3.jpg"
+      img="images/hero-image_3-large.jpg"
+      imgSmall="images/hero-image_3-small.jpg"
       title="Restoran Favorite"
       subtitle="Restoran yang kamu sukai"
       alt-hero="illustrasi kafe"
@@ -18,22 +19,22 @@ class Favorite {
         </div>
       </div>
     </section>
-      `
+      `;
   }
 
   static async afterRender() {
-    const containerContent = document.querySelector('.list-container')
+    const containerContent = document.querySelector(".list-container");
 
-    const favArray = await getFavoriteResto()
+    const favArray = await getFavoriteResto();
 
-    containerContent.innerHTML = this.appendContent(favArray)
+    containerContent.innerHTML = this.appendContent(favArray);
   }
 
   static appendContent(data) {
-    let element = ''
+    let element = "";
 
     data.forEach((restoData) => {
-      const pictureId = `https://restaurant-api.dicoding.dev/images/medium/${restoData.pictureId}`
+      const pictureId = `https://restaurant-api.dicoding.dev/images/medium/${restoData.pictureId}`;
       element += `<div class="list-wrapper">
             <card-resto
             img=${pictureId}
@@ -43,11 +44,11 @@ class Favorite {
             key=${restoData.id}
             >
             </card-resto>
-        </div>`
-    })
+        </div>`;
+    });
 
-    return element
+    return element;
   }
 }
 
-export default Favorite
+export default Favorite;

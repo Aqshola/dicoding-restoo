@@ -1,19 +1,18 @@
-import 'regenerator-runtime'
-import '../styles/style.scss'
-import App from './components/app'
-import './components/index'
-import swRegister from './utils/swRegister'
+import "regenerator-runtime";
+import "../styles/style.scss";
+import App from "./components/app";
+import "./components/index";
+import swRegister from "./utils/swRegister";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 const app = new App({
-  content: '<loader-spin class="loader-wrapper"></loader-spin>',
-  footer: '<footer-section></footer-section>',
-  nav: '<app-bar></app-bar>',
-})
+  content: "",
+});
 
-window.addEventListener('hashchange', () => {
-  app.renderPage()
-})
-window.addEventListener('load', () => {
-  app.renderPage()
-  swRegister()
-})
+window.addEventListener("hashchange", () => {
+  app.renderPage();
+});
+window.addEventListener("load", () => {
+  app.renderPage();
+  swRegister();
+});

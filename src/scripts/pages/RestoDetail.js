@@ -1,5 +1,5 @@
-import { getDetailResto, getPicture } from '../utils/api'
-import UrlParser from '../utils/url-parser'
+import { getDetailResto, getPicture } from "../utils/api";
+import UrlParser from "../utils/url-parser";
 
 class RestoDetail {
   static render() {
@@ -8,23 +8,23 @@ class RestoDetail {
       <loader-spin class="loader-wrapper"></loader-spin>
     </section>
     
-    `
+    `;
   }
 
   static async afterRender() {
-    const container = document.querySelector('.resto-content')
+    const container = document.querySelector(".resto-content");
 
-    const url = UrlParser.parseActiveUrlWithoutCombiner()
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
 
-    const fetchData = await getDetailResto(url.id)
+    const fetchData = await getDetailResto(url.id);
 
     if (fetchData.error) {
-      container.innerHTML = '<error-msg></error-msg>'
+      container.innerHTML = "<error-msg></error-msg>";
     } else {
       container.innerHTML = this.appendDetailContent({
         id: url.id,
         ...fetchData.restaurant,
-      })
+      });
     }
   }
 
@@ -40,7 +40,7 @@ class RestoDetail {
     customerReviews,
     menus,
   }) {
-    const mode = this.getMode()
+    const mode = this.getMode();
     const bundleData = JSON.stringify({
       id,
       name,
@@ -52,7 +52,7 @@ class RestoDetail {
       categories,
       customerReviews,
       menus,
-    })
+    });
 
     return `
     <hero-image img=${getPicture(pictureId)} alt-hero="${name}">
@@ -86,40 +86,40 @@ class RestoDetail {
           <resto-nav id="${id}"></resto-nav>
           <div class="resto-additional">
             ${
-              !mode || mode === 'desc'
+              !mode || mode === "desc"
                 ? `<resto-desc desc="${description}"></resto-desc>`
-                : ''
+                : ""
             }
             ${
-              mode === 'menu'
+              mode === "menu"
                 ? `<resto-menu data-makanan='${JSON.stringify(
                     menus.foods
                   )}' data-minuman='${JSON.stringify(
                     menus.drinks
                   )}'></resto-menu>`
-                : ''
+                : ""
             }
             ${
-              mode === 'review'
+              mode === "review"
                 ? `<resto-review data-review='${JSON.stringify(
                     customerReviews
                   )}'></resto-review>`
-                : ''
+                : ""
             }
           </div>
         </div>     
-    `
+    `;
   }
 
   static getMode() {
-    const urlQuery = new URL(window.location)
-    return urlQuery.toString().split('?mode=')[1]
+    const urlQuery = new URL(window.location);
+    return urlQuery.toString().split("?mode=")[1];
   }
 
   static generateCategory(category) {
-    const append = category.map((data) => `<p>${data.name}</p>`).join('')
-    return append
+    const append = category.map((data) => `<p>${data.name}</p>`).join("");
+    return append;
   }
 }
 
-export default RestoDetail
+export default RestoDetail;

@@ -1,17 +1,18 @@
 class Hero extends HTMLElement {
   // eslint-disable-next-line no-useless-constructor
   constructor() {
-    super()
+    super();
   }
 
   connectedCallback() {
-    this.img = this.getAttribute('img') || ''
-    this.title = this.getAttribute('title') || ''
-    this.subtitle = this.getAttribute('subtitle') || ''
-    this.altHero = this.getAttribute('alt-hero') || ''
-    this.classHero = this.getAttribute('class-hero')
+    this.img = this.getAttribute("img") || "";
+    this.title = this.getAttribute("title") || "";
+    this.subtitle = this.getAttribute("subtitle") || "";
+    this.altHero = this.getAttribute("alt-hero") || "";
+    this.classHero = this.getAttribute("class-hero");
+    this.imgSmall = this.getAttribute("img-small") || "";
 
-    this.render()
+    this.render();
   }
 
   render() {
@@ -22,10 +23,14 @@ class Hero extends HTMLElement {
         <p>${this.subtitle}</p>
       </div>
 
-      <img src=${this.img} alt="${this.altHero}" class=${this.classHero} />
+      <picture>
+          <source media="(max-width: 600px)" srcset="${this.img}">
+          <img src=${this.img} data-src=${this.img} alt="${this.altHero}" class="${this.classHero} lazyload"/>
+      </picture>
+
     </div>
-    `
+    `;
   }
 }
 
-export default customElements.define('hero-image', Hero)
+export default customElements.define("hero-image", Hero);

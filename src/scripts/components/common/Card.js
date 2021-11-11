@@ -1,30 +1,32 @@
 /* eslint-disable no-useless-constructor */
 class Card extends HTMLElement {
   constructor() {
-    super()
+    super();
   }
 
   connectedCallback() {
-    this.img = this.getAttribute('img') || ''
-    this.name = this.getAttribute('name') || ''
-    this.location = this.getAttribute('location') || null
-    this.rate = this.getAttribute('rate') || ''
-    this.key = this.getAttribute('key') || ''
+    this.img = this.getAttribute("img") || "";
+    this.name = this.getAttribute("name") || "";
+    this.location = this.getAttribute("location") || null;
+    this.rate = this.getAttribute("rate") || "";
+    this.key = this.getAttribute("key") || "";
 
-    this.render()
+    this.render();
   }
 
   render() {
-    const link = `/#/resto/${this.key}`
+    const link = `/#/resto/${this.key}`;
     this.innerHTML = `
       <div class="card">
               <img
                 src=${this.img}
                 alt="${this.name}"
+                data-src=${this.img}
+                class="lazyload"
               />
               <div class="card-description">
                 <a href=${link}>${this.name}</a>
-                <h4>${this.location}</h4>
+                <p>${this.location}</p>
               </div>
               <div class="card-action">
                 <div class="card-rating">
@@ -42,8 +44,8 @@ class Card extends HTMLElement {
                 </div>
               </div>
             </div>
-    `
+    `;
   }
 }
 
-export default customElements.define('card-resto', Card)
+export default customElements.define("card-resto", Card);
