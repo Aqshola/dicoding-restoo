@@ -34,8 +34,11 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/public/"),
-          to: path.resolve(__dirname, "dist/"),
+          from: path.resolve(__dirname, "src/public"),
+          to: path.resolve(__dirname, "dist"),
+          globOptions: {
+            ignore: ["**/images/**"], // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+          },
         },
       ],
     }),

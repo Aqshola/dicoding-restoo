@@ -6,9 +6,7 @@ import swRegister from "./utils/swRegister";
 import "lazysizes/plugins/parent-fit/ls.parent-fit";
 
 const app = new App({
-  content: '<loader-spin class="loader-wrapper"></loader-spin>',
-  footer: "<footer-section></footer-section>",
-  nav: "<app-bar></app-bar>",
+  content: "",
 });
 
 window.addEventListener("hashchange", () => {

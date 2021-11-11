@@ -26,7 +26,7 @@ class Card extends HTMLElement {
               />
               <div class="card-description">
                 <a href=${link}>${this.name}</a>
-                <h4>${this.location}</h4>
+                <p>${this.location}</p>
               </div>
               <div class="card-action">
                 <div class="card-rating">

@@ -1,9 +1,10 @@
-import { getAllResto, getPicture } from '../utils/api'
+import { getAllResto, getPicture } from "../utils/api";
 
 class Homepage {
   static render() {
     return `<hero-image
-      img="images/heros/hero-image_2.jpg"
+      img="/images/hero-image_2-large.jpg"
+      imgSmall="/images/hero-image_2-small.jpg"
       title="Restoo"
       subtitle="Tempatnya cari makanan enak"
       alt-hero="illustrasi kafe"
@@ -17,25 +18,25 @@ class Homepage {
         </div>
       </div>
     </section>
-      `
+      `;
   }
 
   static async afterRender() {
-    const containerContent = document.querySelector('.list-container')
+    const containerContent = document.querySelector(".list-container");
 
-    const fetchData = await getAllResto()
+    const fetchData = await getAllResto();
 
-    this.data = fetchData
+    this.data = fetchData;
 
     if (fetchData.error) {
-      containerContent.innerHTML = `<error-msg class="err-msg" msg="${fetchData.message}"></error-msg>`
+      containerContent.innerHTML = `<error-msg class="err-msg" msg="${fetchData.message}"></error-msg>`;
     } else {
-      containerContent.innerHTML = this.appendContent(fetchData.restaurants)
+      containerContent.innerHTML = this.appendContent(fetchData.restaurants);
     }
   }
 
   static appendContent(data) {
-    let element = ''
+    let element = "";
 
     data.forEach((restoData) => {
       element += `<div class="list-wrapper">
@@ -47,11 +48,11 @@ class Homepage {
             key=${restoData.id}
             >
             </card-resto>
-        </div>`
-    })
+        </div>`;
+    });
 
-    return element
+    return element;
   }
 }
 
-export default Homepage
+export default Homepage;
