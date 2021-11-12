@@ -5,7 +5,7 @@ class Favorite {
     return `
     <hero-image
       img="images/hero-image_3-large.jpg"
-      imgSmall="images/hero-image_3-small.jpg"
+      img-small="images/hero-image_3-small.jpg"
       title="Restoran Favorite"
       subtitle="Restoran yang kamu sukai"
       alt-hero="illustrasi kafe"
