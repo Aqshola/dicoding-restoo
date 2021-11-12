@@ -21,7 +21,13 @@
   grid-column-end: 11;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 576px) {
+  .list-wrapper {
+    grid-column: span 5;
+  }
+}
+
+@media (min-width: 992px) {
   .hero-container {
     height: 400px;
     .hero-slogan {
