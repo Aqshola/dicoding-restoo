@@ -4,7 +4,7 @@ class Homepage {
   static render() {
     return `<hero-image
       img="/images/hero-image_2-large.jpg"
-      imgSmall="/images/hero-image_2-small.jpg"
+      img-small="/images/hero-image_2-small.jpg"
       title="Restoo"
       subtitle="Tempatnya cari makanan enak"
       alt-hero="illustrasi kafe"

@@ -24,7 +24,7 @@ class Hero extends HTMLElement {
       </div>
 
       <picture>
-          <source media="(max-width: 600px)" srcset="${this.img}" width="422px" height="281px">
+          <source media="(max-width: 600px)" sizes="(max-width: 600px)" srcset="${this.imgSmall}" width="422px" height="281px">
           <img src=${this.img} data-src=${this.img} alt="${this.altHero}" class="${this.classHero} lazyload" width="1582px" height="420px"/>
       </picture>
 
