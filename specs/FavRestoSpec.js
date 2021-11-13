@@ -14,35 +14,64 @@ const data = {
 const stringifyData = JSON.stringify(data);
 
 describe("Favorite a restaurant", () => {
-  let favButton = "";
-
-  beforeEach(async () => {
+  beforeEach(() => {
     document.body.innerHTML = `<resto-fav data-resto='${stringifyData}'></resto-fav>`;
-    favButton = document.querySelector(".resto-fav");
   });
 
-  it("Should show favorite button", () => {
-    expect(favButton).toBeTruthy();
+  it("Should display fav button", () => {
+    expect(document.querySelector(".resto-fav")).toBeTruthy();
   });
 
-  it("Favorite button state should be inactive", () => {
-    expect(favButton.classList.contains("resto-fav-active")).toBeFalsy();
+  it("button state should be not fav", () => {
+    expect(
+      document
+        .querySelector(".resto-fav")
+        .classList.contains("resto-fav-active")
+    ).toBeFalsy();
   });
 
-  it("Should have functional add restaurant to IDB favorite", async () => {
-    favButton.dispatchEvent(new Event("click"));
-    const checkResto = await Database.getRestoo(data.id);
-    expect(checkResto).toEqual(data);
-  });
-
-  it("Should change state to active after favorite a resto", () => {
-    favButton.dispatchEvent(new Event("click"));
-    expect(favButton.classList.contains("resto-fav-active")).toBeFalsy();
+  it("Should have functionality to fav resto", () => {
+    document.querySelector(".resto-fav").dispatchEvent(new Event("click"));
+    Database.getRestoo(data.id).then((res) => {
+      expect(res).toEqual(data);
+    });
   });
 
   afterEach(() => {
-    Database.deleteRestoo(data.id);
+    Database.deleteAllRestoo();
   });
 });
 
-// describe("Unfav a restaurant", () => {});
+describe("UnFavorite a restaurnt", () => {
+  beforeEach(() => {
+    Database.openDB();
+    Database.addRestoo(data);
+    document.body.innerHTML = `<resto-fav data-resto='${stringifyData}'></resto-fav>`;
+  });
+
+  it("Should display fav button", () => {
+    expect(document.querySelector(".resto-fav")).toBeTruthy();
+  });
+
+  it("Button state should be fav", () => {
+    document.querySelector(".resto-fav").dispatchEvent(new Event("click"));
+    expect(
+      document
+        .querySelector(".resto-fav")
+        .classList.contains("resto-fav-active")
+    ).toBeTruthy();
+  });
+
+  it("Should be able to unfav resto", () => {
+    document.querySelector(".resto-fav").dispatchEvent(new Event("click"));
+    document.querySelector(".resto-fav").dispatchEvent(new Event("click"));
+
+    Database.getRestoo(data.id).then((res) => {
+      expect(res).toBeFalsy();
+    });
+  });
+
+  afterEach(() => {
+    Database.deleteAllRestoo();
+  });
+});
