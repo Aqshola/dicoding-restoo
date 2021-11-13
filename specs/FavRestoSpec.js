@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import "../src/scripts/components/resto-detail/Resto-fav";
+import Database from "../src/scripts/utils/indexedDB";
 
 const data = {
   id: "123456",
@@ -24,7 +25,24 @@ describe("Favorite a restaurant", () => {
     expect(favButton).toBeTruthy();
   });
 
-  it("Button state should be inactive", () => {
+  it("Favorite button state should be inactive", () => {
     expect(favButton.classList.contains("resto-fav-active")).toBeFalsy();
   });
+
+  it("Should have functional add restaurant to IDB favorite", async () => {
+    favButton.dispatchEvent(new Event("click"));
+    const checkResto = await Database.getRestoo(data.id);
+    expect(checkResto).toEqual(data);
+  });
+
+  it("Should change state to active after favorite a resto", () => {
+    favButton.dispatchEvent(new Event("click"));
+    expect(favButton.classList.contains("resto-fav-active")).toBeFalsy();
+  });
+
+  afterEach(() => {
+    Database.deleteRestoo(data.id);
+  });
 });
+
+// describe("Unfav a restaurant", () => {});
