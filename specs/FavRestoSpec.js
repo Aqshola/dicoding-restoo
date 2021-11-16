@@ -15,6 +15,7 @@ const stringifyData = JSON.stringify(data);
 
 describe("Favorite a restaurant", () => {
   beforeEach(() => {
+    Database.deleteAllRestoo();
     document.body.innerHTML = `<resto-fav data-resto='${stringifyData}'></resto-fav>`;
   });
 
@@ -44,7 +45,9 @@ describe("Favorite a restaurant", () => {
 
 describe("UnFavorite a restaurnt", () => {
   beforeEach(() => {
+    Database.deleteAllRestoo();
     Database.openDB();
+
     Database.addRestoo(data);
     document.body.innerHTML = `<resto-fav data-resto='${stringifyData}'></resto-fav>`;
   });
