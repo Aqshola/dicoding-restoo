@@ -33,6 +33,14 @@ class Favorite {
   static appendContent(data) {
     let element = "";
 
+    if (data.length === 0) {
+      return `
+      <div class="list-wrapper">
+        <h1 id="no-fav">Tidak ada favorite</h1>
+      </div>
+      `;
+    }
+
     data.forEach((restoData) => {
       const pictureId = `https://restaurant-api.dicoding.dev/images/medium/${restoData.pictureId}`;
       element += `<div class="list-wrapper">
