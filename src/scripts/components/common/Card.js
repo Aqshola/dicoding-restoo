@@ -24,7 +24,7 @@ class Card extends HTMLElement {
                   <source 
                     loading="lazy"
                     media="(max-width: 576px)" 
-                    srcset=${this.img} 
+                    srcset="${this.img}"
                     width="294px" height="299px" 
                     class="lazyload" 
                     data-srcset=${this.img}>

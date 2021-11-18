@@ -22,7 +22,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new BundleAnalyzerPlugin({
-      analyzerMode: "disabled",
+      analyzerMode: "static",
+      openAnalyzer: false,
     }),
   ],
   optimization: {
