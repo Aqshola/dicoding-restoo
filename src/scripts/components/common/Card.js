@@ -18,16 +18,25 @@ class Card extends HTMLElement {
     const link = `/#/resto/${this.key}`;
     this.innerHTML = `
       <div class="card">
-              <picture src=${this.img}
-                alt="${this.name}"
-                data-src=${this.img}
-                class="lazyload">
-                  <source media="(max-width: 576px)" srcset="${
-                    this.img
-                  }" width="294px" height="299px">
-                  <img src=${this.img} data-src=${this.img} alt="${
-      this.altHero
-    }" class="${this.classHero} lazyload" width="179px" height="200px"/>
+              <picture
+                alt="${this.name}">
+
+                  <source 
+                    loading="lazy"
+                    media="(max-width: 576px)" 
+                    srcset=${this.img} 
+                    width="294px" height="299px" 
+                    class="lazyload" 
+                    data-srcset=${this.img}>
+
+                  <img 
+                  src=${this.img} 
+                  data-src=${this.img}  
+                  class="${this.classHero} lazyload"
+                  loading="lazy"
+                  alt="${this.altHero}" 
+                  width="179px" height="200px"/>
+              
               </picture>
               
               <div class="card-description">
