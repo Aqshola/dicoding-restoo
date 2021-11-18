@@ -3,7 +3,7 @@
 
 import Database from "../../utils/indexedDB";
 
-export default class FavButton extends HTMLElement {
+class FavButton extends HTMLElement {
   connectedCallback() {
     this.indexedDB = null;
     this.data = this.getAttribute("data-resto");
@@ -57,4 +57,4 @@ export default class FavButton extends HTMLElement {
         </button>`;
   }
 }
-customElements.define("resto-fav", FavButton);
+export default customElements.define("resto-fav", FavButton);
