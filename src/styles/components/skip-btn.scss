@@ -11,6 +11,8 @@
   overflow: hidden;
   position: absolute;
   top: 50px;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .skip-btn:focus {
